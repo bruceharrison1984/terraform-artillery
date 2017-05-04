@@ -1,0 +1,19 @@
+---
+  # Thank you for trying serverless-artillery!
+  # This default script is intended to get you started quickly.
+  # There is a lot more that Artillery can do.
+  # You can find great documentation of the possibilities at:
+  # https://artillery.io/docs/
+  config:
+    target: "https://aws.amazon.com" # this hostname will be used for each part of the flow
+    phases:
+      -
+        duration: 5
+        arrivalRate: 1
+        rampTo: 5
+  scenarios:
+    -
+      flow:
+        -
+          get:
+            url: "/"

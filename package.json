@@ -1,6 +1,17 @@
 {
   "name": "terraform-artillery",
   "version": "0.0.1",
-  "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "package": "bestzip out/lambda.zip handler.js node_modules package.json",
+    "deploy": ""
+  },
+  "dependencies": {
+    "artillery-core": "^2.0.3-0",
+    "aws-sdk": "^2.48.0",
+    "bestzip": "^1.1.4",
+    "csv-parse": "^1.1.7",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
 }
