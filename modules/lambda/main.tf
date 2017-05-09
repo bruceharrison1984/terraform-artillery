@@ -1,10 +1,5 @@
 variable "lambda_region" {}
-
-# variable "s3_bucket" {}
-# variable "s3_key" {}
-
 variable "filename" {}
-
 variable "function_name" {}
 variable "role" {}
 variable "handler" {}
@@ -17,8 +12,6 @@ provider "aws" {
 }
 
 resource "aws_lambda_function" "artillery_lambda" {
-  # s3_bucket = "${var.s3_bucket}"    # s3_key    = "${var.s3_key}"
-
   function_name = "${var.function_name}"
 
   filename         = "${var.filename}"
@@ -26,5 +19,7 @@ resource "aws_lambda_function" "artillery_lambda" {
   handler          = "${var.handler}"
   source_code_hash = "${var.source_code_hash}"
   runtime          = "${var.runtime}"
+  memory_size      = "512"
+  timeout          = "300"
   provider         = "aws.myregion"
 }
