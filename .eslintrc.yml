@@ -1,0 +1,33 @@
+env:
+  browser: true
+  es6: true
+rules:
+  no-console:
+    - warn
+    - allow:
+      - warn
+      - error
+  semi:
+    - error
+    - always
+  curly:
+    - error
+  eqeqeq:
+    - error
+    - always
+  no-multi-spaces:
+    - error
+  no-multiple-empty-lines:
+    - error
+  quotes:
+    - error
+    - single
+    - avoidEscape: true
+  eol-last:
+    - error
+    - always
+  no-unused-vars: error
+  no-trailing-spaces: error
+  space-before-function-paren: 
+    - error
+    - never
