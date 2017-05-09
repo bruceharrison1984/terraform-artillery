@@ -35,6 +35,17 @@ module "us_west_1" {
   runtime          = "nodejs4.3"
 }
 
+module "us_west_2" {
+  source           = "./modules/lambda"
+  lambda_region    = "us-west-2"
+  filename         = "./out/lambda.zip"
+  function_name    = "artillery-us-west-2"
+  role             = "${aws_iam_role.artillery.arn}"
+  handler          = "handler.handler"
+  source_code_hash = "${base64sha256(file("out/lambda.zip"))}"
+  runtime          = "nodejs4.3"
+}
+
 resource "aws_iam_role" "artillery" {
   name = "artillery"
 
