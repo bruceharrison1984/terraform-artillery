@@ -2,7 +2,7 @@
 'use strict';
 
 const program = require('commander');
-const terraform = require('./terraform');
+const terraform = require('./lib/terraform');
 
 program.version('0.0.1');
 
