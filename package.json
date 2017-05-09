@@ -2,15 +2,19 @@
   "name": "terraform-artillery",
   "version": "0.0.1",
   "license": "MIT",
+  "bin": {
+    "tfartillery": "./index.js"
+  },
   "scripts": {
-    "package": "bestzip out/lambda.zip handler.js node_modules package.json",
-    "deploy": ""
+    "package": "bestzip out/lambda.zip handler.js node_modules package.json"
   },
   "dependencies": {
     "artillery-core": "^2.0.3-0",
     "aws-sdk": "^2.48.0",
     "bestzip": "^1.1.4",
+    "commander": "^2.9.0",
     "csv-parse": "^1.1.7",
+    "exec-sh": "^0.2.0",
     "fs": "^0.0.1-security",
     "path": "^0.12.7"
   }
