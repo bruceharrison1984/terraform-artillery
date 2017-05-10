@@ -12,6 +12,7 @@ module "us_east_1" {
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
   enabled          = "${var.useast1}"
+  env_vars         = "${var.env_vars}"
 }
 
 module "us_east_2" {
@@ -24,6 +25,7 @@ module "us_east_2" {
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
   enabled          = "${var.useast2}"
+  env_vars         = "${var.env_vars}"
 }
 
 module "us_west_1" {
@@ -36,6 +38,7 @@ module "us_west_1" {
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
   enabled          = "${var.uswest1}"
+  env_vars         = "${var.env_vars}"
 }
 
 module "us_west_2" {
@@ -48,6 +51,7 @@ module "us_west_2" {
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
   enabled          = "${var.uswest2}"
+  env_vars         = "${var.env_vars}"
 }
 
 resource "aws_iam_role" "artillery" {

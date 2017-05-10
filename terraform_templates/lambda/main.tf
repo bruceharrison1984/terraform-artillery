@@ -7,6 +7,10 @@ variable "handler" {}
 variable "source_code_hash" {}
 variable "runtime" {}
 
+variable "env_vars" {
+  type = "map"
+}
+
 provider "aws" {
   alias  = "myregion"
   region = "${var.lambda_region}"
@@ -24,4 +28,8 @@ resource "aws_lambda_function" "artillery_lambda" {
   memory_size      = "512"
   timeout          = "300"
   provider         = "aws.myregion"
+
+  environment {
+    variables = "${var.env_vars}"
+  }
 }

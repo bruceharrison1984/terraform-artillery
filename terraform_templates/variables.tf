@@ -21,3 +21,9 @@ variable "uswest2" {
   description = "Set if an Artillery lambda should be deployed to the us-west-2 region"
   default     = 0
 }
+
+variable "env_vars" {
+  type        = "map"
+  description = "Environmental variables to be set on the Artillery lambdas"
+  default     = {}
+}

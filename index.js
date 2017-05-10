@@ -14,6 +14,7 @@ program
     .option('--useast2', 'Deploy Artillery to us-east-2 AWS region')
     .option('--uswest1', 'Deploy Artillery to us-west-1 AWS region')
     .option('--uswest2', 'Deploy Artillery to us-west-2 AWS region')
+    .option('-e, --env <env>', 'Environmental variables to set on the Artillery lambda ex: {foo=\\"bar\\",baz=\\"qux\\"}')
     .option('-a, --allregions', 'Deploy Artillery to all US regions')
     .action(terraformService.deploy);
 
