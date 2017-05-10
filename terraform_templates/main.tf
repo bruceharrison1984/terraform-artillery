@@ -6,7 +6,7 @@ module "us_east_1" {
   source           = "./lambda"
   lambda_region    = "us-east-1"
   filename         = "../lambda_package/lambda.zip"
-  function_name    = "artillery-us-east-1"
+  function_name    = "${var.environment}-artillery-us-east-1"
   role             = "${aws_iam_role.artillery.arn}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
@@ -19,7 +19,7 @@ module "us_east_2" {
   source           = "./lambda"
   lambda_region    = "us-east-2"
   filename         = "../lambda_package/lambda.zip"
-  function_name    = "artillery-us-east-2"
+  function_name    = "${var.environment}-artillery-us-east-2"
   role             = "${aws_iam_role.artillery.arn}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
@@ -32,7 +32,7 @@ module "us_west_1" {
   source           = "./lambda"
   lambda_region    = "us-west-1"
   filename         = "../lambda_package/lambda.zip"
-  function_name    = "artillery-us-west-1"
+  function_name    = "${var.environment}-artillery-us-west-1"
   role             = "${aws_iam_role.artillery.arn}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
@@ -45,7 +45,7 @@ module "us_west_2" {
   source           = "./lambda"
   lambda_region    = "us-west-2"
   filename         = "../lambda_package/lambda.zip"
-  function_name    = "artillery-us-west-2"
+  function_name    = "${var.environment}-artillery-us-west-2"
   role             = "${aws_iam_role.artillery.arn}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
@@ -55,7 +55,7 @@ module "us_west_2" {
 }
 
 resource "aws_iam_role" "artillery" {
-  name = "artillery"
+  name = "${var.environment}-artillery"
 
   assume_role_policy = <<EOF
 {
