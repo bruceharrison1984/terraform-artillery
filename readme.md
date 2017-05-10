@@ -52,3 +52,7 @@ I opted to use Terraform to deploy Artillery in to an AWS Lambda, and then run i
   - Currently they run synchronously
 - Results should be placed in to an S3 bucket
 - Enable Cloudwatch logging for deployed lambdas
+
+## License
+- Feel free to use any thing from this repo for your own development
+- Original 'handler.js' file was copied from the project 'Nordstrom/serverless-artillery'
