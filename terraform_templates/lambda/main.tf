@@ -1,3 +1,4 @@
+variable "enabled" {}
 variable "lambda_region" {}
 variable "filename" {}
 variable "function_name" {}
@@ -14,6 +15,7 @@ provider "aws" {
 resource "aws_lambda_function" "artillery_lambda" {
   function_name = "${var.function_name}"
 
+  count            = "${var.enabled}"
   filename         = "${var.filename}"
   role             = "${var.role}"
   handler          = "${var.handler}"

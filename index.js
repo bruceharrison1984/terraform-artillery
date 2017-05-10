@@ -10,6 +10,11 @@ program.version('0.0.1');
 program
     .command('deploy')
     .description('deploy artillery lambdas to AWS environment')
+    .option('-1, --useast1', 'Deploy Artillery to us-east-1 AWS region')
+    .option('-2, --useast2', 'Deploy Artillery to us-east-2 AWS region')
+    .option('-3, --uswest1', 'Deploy Artillery to us-west-1 AWS region')
+    .option('-4, --uswest2', 'Deploy Artillery to us-west-2 AWS region')
+    .option('-a, --allregions', 'Deploy Artillery to all US regions')
     .action(terraformService.deploy);
 
 program

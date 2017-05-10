@@ -11,6 +11,7 @@ module "us_east_1" {
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
+  enabled          = "${var.useast1}"
 }
 
 module "us_east_2" {
@@ -22,6 +23,7 @@ module "us_east_2" {
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
+  enabled          = "${var.useast2}"
 }
 
 module "us_west_1" {
@@ -33,6 +35,7 @@ module "us_west_1" {
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
+  enabled          = "${var.uswest1}"
 }
 
 module "us_west_2" {
@@ -44,6 +47,7 @@ module "us_west_2" {
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file("../lambda_package/lambda.zip"))}"
   runtime          = "nodejs4.3"
+  enabled          = "${var.uswest2}"
 }
 
 resource "aws_iam_role" "artillery" {
