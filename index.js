@@ -32,7 +32,7 @@ program
     .command('invoke')
     .description('run scenario script against remote artillery lambdas')
     .option('-s, --script <script>', 'The scenario file to remotely execute on the artillery lambdas')
-    .option('-i, --iterations <iterations>', 'The number of times to execute each scenario on each lambda')
+    .option('-i, --iterations <n>', 'The number of times to execute each scenario on each lambda')
     .action(lambdaService.invoke);
 
 program.parse(process.argv);
