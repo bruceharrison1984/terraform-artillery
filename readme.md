@@ -15,6 +15,7 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - Easily pass environment variables to Lambdas through commandline
 - Clean up all lambdas once testing has finished
 - Cloudwatch logging for deployed lambdas
+- Scenarios are executed sequentially, but responses arrive asynchronously
 
 ## Installation
 - Install node modules using either
@@ -62,9 +63,9 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - etc...
 
 ## ToDo
-- Scenarios should be run parallel
-  - Currently they run synchronously
-- Results should be placed in to an S3 bucket
+- Results should be placed in a container
+  - S3 bucket
+  - DynamoDB table
 - Allow multiple scenarios to be specified
   - Allow an entire directory of scenarios to be executed in one session
 - Publish as an NPM module
