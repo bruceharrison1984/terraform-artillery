@@ -31,5 +31,8 @@ variable "uswest2" {
 variable "env_vars" {
   type        = "map"
   description = "Environmental variables to be set on the Artillery lambdas"
-  default     = {}
+
+  default = {
+    None = "true"
+  }
 }
