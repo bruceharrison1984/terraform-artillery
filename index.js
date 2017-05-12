@@ -23,7 +23,7 @@ program
 
 program
     .command('package')
-    .description('Create the Zip package for AWS Lambda deployment. Will overwrite existing package.')
+    .description('Create the Zip package for AWS Lambda deployment (Will overwrite existing package)')
     .action(terraformService.package);
 
 program
@@ -33,9 +33,9 @@ program
 
 program
     .command('invoke')
-    .description('run scenario script against remote artillery lambdas')
-    .option('-s, --scenario <path>', 'The scenario file to remotely execute on the artillery lambdas. Can also be a directory.')
-    .option('-i, --iterations <n>', 'The number of times to execute each scenario on each lambda')
+    .description('Run scenario(s) against all deployed Artillery Lambdas')
+    .option('-s, --scenario <path>', 'The scenario file or directory of files to remotely execute on the artillery lambdas')
+    .option('-i, --iterations <n>', 'The number of times to execute each scenario on each lambda (Defaults to 1 if unspecified)')
     .action(artilleryService.invoke);
 
 program.parse(process.argv);
