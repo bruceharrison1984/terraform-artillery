@@ -12,6 +12,7 @@ I created the project due to my distaste for serverless. Rather than introduce a
 ## Features
 - Simultaneously deploy an AWS Lambda to each of the US regions
 - Run a scenario N times against all of the deployed lambdas
+- Run a directory of scenarios N times against all of the deployed lambdas
 - Easily pass environment variables to Lambdas through commandline
 - Clean up all lambdas once testing has finished
 - Cloudwatch logging for deployed lambdas
@@ -25,6 +26,7 @@ I created the project due to my distaste for serverless. Rather than introduce a
 ## Usage
 - **Beware! Executing many iterations in many regions could be an expensive mistake!**
 - Command Note: If running directly from the repository, swap `terraform-artillery` to `node ./index.js`
+- This will be necessary until an NPM package has been published
 
 ### Deploy the Artillery lambdas:
 - Running any deploy tasks will update/overwrite any lambdas that may already be deployed
@@ -34,6 +36,9 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - `terraform-artillery deploy --useast1 --uswest1`
   - Each region can be individually added by using the correct command line switch
   - See help for valid options
+- `terraform-artillery deploy -p --useast1 --uswest1`
+  - This will display the resources that will be deployed to AWS, but nothing is deployed
+  - Useful for testing or seeing if resources have already been deployed
 
 ### Passing environmental variables
 - `terraform-artillery deploy --useast1 --env {foo=\"bar\"}`
@@ -49,8 +54,11 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - Destroys all lambdas in all regions
 
 ### Invoke the Artillery lambdas:
-- `terraform-artillery invoke --script scenarios/get-aws.amazon.com --iterations 10`
+- `terraform-artillery invoke --scenario scenarios/get-aws.amazon.com --iterations 10`
   - Invoke the lambdas with the given scenario, for X iterations
+- `terraform-artillery invoke --scenario scenarios/ --iterations 10`
+  - Run all scenarios found in the directory specified
+  - This is a recursive search so files in sub-directories will also be ran
 - Scenarios will be run against all currently deployed lambdas
 
 ### Package the files for lambda deployment (for testing)
@@ -62,13 +70,20 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - `terraform-artillery deploy help`
 - etc...
 
+### Scenarios
+- Scenarios are defined exactly the same way as Artillery scenarios
+- YML or JSON formats are both acceptable
+- Incorrect templates will cause the entire job to fail
+
 ## ToDo
 - Results should be placed in a container
   - S3 bucket
   - DynamoDB table
-- Allow multiple scenarios to be specified
-  - Allow an entire directory of scenarios to be executed in one session
 - Publish as an NPM module
+- Error handling of incorrectly structured templates
+- Only add necessary node_modules to the deployed lambda
+  - Decrease filesize
+  - Speed-up deployment and execution time
 
 ## License
 - Apache 2.0
