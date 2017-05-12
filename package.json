@@ -9,6 +9,7 @@
     "artillery-core": "^2.0.3-0",
     "aws-sdk": "^2.49.0",
     "bestzip": "^1.1.4",
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
     "csv-parse": "^1.1.7",
     "eslint": "^3.19.0",
