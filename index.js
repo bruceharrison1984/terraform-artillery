@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
+const packageInfo = require('./package.json');
 const program = require('commander');
 const terraformService = require('./lib/terraformService');
 const artilleryService = require('./lib/artilleryService');
 
-program.version('0.0.1');
+program.version(packageInfo.version);
 
 program
     .command('deploy')
@@ -17,7 +18,7 @@ program
     .option('-p, --plan', 'Display which items will be deployed in to AWS')
     .option('-e, --env <map>', 'Environmental variables to set on the Artillery lambda ex: {foo=\\"bar\\",baz=\\"qux\\"}')
     .option('-a, --allregions', 'Deploy Artillery to all US regions')
-    .option('-o, --overwrite', 'Overwrite any existing lambda deployment package')
+    .option('-o, --overwrite', 'Re-package and overwrite any existing lambda package before deployment')
     .action(terraformService.deploy);
 
 program
