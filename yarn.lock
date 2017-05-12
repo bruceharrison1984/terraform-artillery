@@ -169,6 +169,10 @@ async@^2.0.1:
   dependencies:
     lodash "^4.14.0"
 
+async@~0.2.9:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
+
 aws-sdk@^2.49.0:
   version "2.49.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.49.0.tgz#e340451b38b9772b2320da64a2cc272410667c69"
@@ -621,6 +625,10 @@ es6-weak-map@^2.0.1:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
+escape-regexp@~0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/escape-regexp/-/escape-regexp-0.0.1.tgz#f44bda12d45bbdf9cb7f862ee7e4827b3dd32254"
+
 escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -800,6 +808,16 @@ form-data@~1.0.0-rc3:
     async "^2.0.1"
     combined-stream "^1.0.5"
     mime-types "^2.1.11"
+
+fs-finder@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/fs-finder/-/fs-finder-1.8.1.tgz#106fea8aa89d0af343360663d5855862cae1b874"
+  dependencies:
+    async "~0.2.9"
+    escape-regexp "~0.0.1"
+    moment "~2.5.0"
+    operator-compare "~1.0.1"
+    q "~1.0.0"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -1188,6 +1206,10 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+moment@~2.5.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.5.1.tgz#7146a3900533064ca799d5e792f4e480ee0e82bc"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -1255,6 +1277,10 @@ once@^1.3.0, once@^1.4.0:
 onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
+
+operator-compare@~1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/operator-compare/-/operator-compare-1.0.3.tgz#8d06d094bc1b83a607fc9c9f3800447886591af9"
 
 optionator@^0.8.1, optionator@^0.8.2:
   version "0.8.2"
@@ -1357,6 +1383,10 @@ progress@^1.1.8:
 punycode@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
+
+q@~1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.0.1.tgz#11872aeedee89268110b10a718448ffb10112a14"
 
 qs@~6.1.0:
   version "6.1.2"
@@ -1786,12 +1816,9 @@ xtend@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
-yamljs@^0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/yamljs/-/yamljs-0.2.10.tgz#481cc7c25ca73af59f591f0c96e3ce56c757a40f"
-  dependencies:
-    argparse "^1.0.7"
-    glob "^7.0.5"
+yaml-js@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/yaml-js/-/yaml-js-0.1.5.tgz#a01369010b3558d8aaed2394615dfd0780fd8fac"
 
 yargs@^1.3.2:
   version "1.3.3"
