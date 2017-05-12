@@ -1,0 +1,23 @@
+{
+  "config": {
+    "target": "https://www.microsoft.com",
+    "phases": [
+      {
+        "duration": 5,
+        "arrivalRate": 1,
+        "rampTo": 5
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "flow": [
+        {
+          "get": {
+            "url": "/"
+          }
+        }
+      ]
+    }
+  ]
+}
