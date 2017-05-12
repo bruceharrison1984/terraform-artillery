@@ -22,12 +22,12 @@ program
 
 program
     .command('package')
-    .description('zip handler for deployment to AWS lambda')
+    .description('Create the Zip package for AWS Lambda deployment. Will overwrite existing package.')
     .action(terraformService.package);
 
 program
     .command('destroy')
-    .description('remove artillery lambdas from AWS environment')
+    .description('Remove all AWS resource currently deployed')
     .action(terraformService.destroy);
 
 program
