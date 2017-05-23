@@ -1,0 +1,7 @@
+lambda_package
+.eslintrc.yml
+.npmignore
+.gitignore
+*tfstate*
+yarn.lock
+scenarios
