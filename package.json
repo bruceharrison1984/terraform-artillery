@@ -14,7 +14,7 @@
     "csv-parse": "^1.1.7",
     "eslint": "^3.19.0",
     "exec-sh": "^0.2.0",
-    "fs": "^0.0.1-security",
+    "fs-extra": "^3.0.1",
     "fs-finder": "^1.8.1",
     "path": "^0.12.7",
     "yaml-js": "^0.1.5"
