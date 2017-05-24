@@ -1,12 +1,15 @@
 # terraform-artillery
 
-This project is very similar to [Nordstrom/serverless-artillery](https://github.com/Nordstrom/serverless-artillery), minus using [serverless](https://github.com/serverless/serverless) to deploy the lambdas. I liked serverless-artillery so much, the handler.js is the same one that they include in their project. That will no doubt change over time, but it suits my purpose perfectly for the time being.
+This project is very similar to [Nordstrom/serverless-artillery](https://github.com/Nordstrom/serverless-artillery), minus using [serverless](https://github.com/serverless/serverless) to deploy the lambdas. 
 
 I created the project due to my distaste for serverless. Rather than introduce another AWS deployment tool in to my toolbox, I opted to use Terraform to deploy Artillery in to an AWS Lambda, and then run it remotely.
 
+This project was written with the intent of load testing AWS Api Gateway and accompanying Lambdas. Since a Lambda can only have an execution time of 5 minutes, any test written longer than that will not work or produce strange results. This may be corrected in the future, but for the time being don't write any scenarios that run longer than 5 minutes (your lambda will timeout).
+
 ### Hard Dependencies
 - Terraform ^0.9.4 on PATH
-  - Lower versions may work depending on your terraform templatees
+  - Lower versions may work depending on your terraform templates
+  - The critical part of this is that the tfstate file is read to see what has been deployed. If the format has changed, this will fail.
   - [Download](https://www.terraform.io/downloads.html)
 
 ## Features
@@ -22,11 +25,11 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - Install node modules using either
   - yarn install
   - npm install
+- If installed globally, then `terraform-artillery` should be available from the commandline
+  - If install locally, use `node node_modules/.bin/terraform-artillery` instead
 
 ## Usage
 - **Beware! Executing many iterations in many regions could be an expensive mistake!**
-- Command Note: If running directly from the repository, swap `terraform-artillery` to `node ./index.js`
-- This will be necessary until an NPM package has been published
 
 ### Create the artifacts
 - Before deploying Artillery lambdas, you will need to create the deployment package
@@ -57,6 +60,9 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - `terraform-artillery deploy -p --useast1 --uswest1`
   - This will display the resources that will be deployed to AWS, but nothing is deployed
   - Useful for testing or seeing if resources have already been deployed
+- `terraform-artillery deploy --useast1 --overwrite`
+  - Use the `overwrite` flag to force the lambda deployment package to be recreated before upload
+  - The package needs to be recreated anytime a change is made to it, otherwise a previous compiled package will be uploaded
 
 ### Passing environmental variables
 - `terraform-artillery deploy --useast1 --env {foo=\"bar\"}`
@@ -81,6 +87,8 @@ I created the project due to my distaste for serverless. Rather than introduce a
 
 ### Package the files for lambda deployment (for testing)
 - `terraform-artillery package`
+- This step occurs automatically when running `terraform-artillery deploy [region] --overwrite`
+- This is useful for checking the output of your packaging
 
 ### Display commandline help:
 - `terraform-artillery help`
