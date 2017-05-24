@@ -37,6 +37,15 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - Currently, the entry point must be a file called `handler.js` that exports a function called `handler`
   - This will probably be made configurable at some point
 
+### Quick start
+- `terraform-artillery template`
+  - Create template files for deployment
+- `terraform-artillery deploy --useast1 --uswest1`
+  - Deploy the template in to two regions
+- `terraform-artillery invoke --test`
+  - Run the default tests included with terraform-artillery
+  - These tests should all complete, and logs should be available in the created Lambda CloudWatch logs
+
 ### Deploy the Artillery lambdas:
 - Running any deploy tasks will update/overwrite any lambdas that may already be deployed
 - Running deploy and changing regions will remove lambdas from any regions no longer specified
