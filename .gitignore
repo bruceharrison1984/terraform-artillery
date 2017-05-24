@@ -4,3 +4,4 @@ lambda_package
 *.tfstate*
 lambda_template
 npm-debug.log
+yarn-error.log
