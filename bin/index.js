@@ -5,7 +5,8 @@ const packageInfo = require('../package.json');
 const program = require('commander');
 const terraformService = require('../lib/terraformService');
 const artilleryService = require('../lib/artilleryService');
-const tfState = require('./tfstateService');
+const scenarioService = require('../lib/scenarioService');
+const tfstateService = require('../lib/tfstateService');
 
 const defaultScenarioDirectory = `${__dirname}/../scenarios`;
 
@@ -45,10 +46,10 @@ program
     .option('-s, --scenario <path>', 'The scenario file or directory of files to remotely execute on the artillery lambdas')
     .option('-i, --iterations <n>', 'The number of times to execute each scenario on each lambda (Defaults to 1 if unspecified)')
     .option('--test', 'Run the default scenarios (verify correct operation)')
-    .action((scenario, iterations, test) => {
+    .action(({ scenario, iterations, test }) => {
         let scenarios = scenarioService.getScenarioContent(test ? defaultScenarioDirectory : scenario);
-        let tfState = tfState.readState();
-        artilleryService.invoke(tfState, scenarios, iterations || 1);
+        let tfstate = tfstateService.readState();
+        artilleryService.invoke(tfstate, scenarios, iterations || 1);
     });
 
 program.parse(process.argv);
