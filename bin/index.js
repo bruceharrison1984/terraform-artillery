@@ -48,9 +48,7 @@ program
     .action((scenario, iterations, test) => {
         let scenarios = scenarioService.getScenarioContent(test ? defaultScenarioDirectory : scenario);
         let tfState = tfState.readState();
-        artilleryService.invoke(tfState, scenarios, iterations);
+        artilleryService.invoke(tfState, scenarios, iterations || 1);
     });
 
 program.parse(process.argv);
-
-
