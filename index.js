@@ -27,6 +27,11 @@ program
     .action(terraformService.package);
 
 program
+    .command('template')
+    .description('Create the basic structure for an Artillery lambda. The lambda code can be customized to suit your needs')
+    .action(terraformService.template);
+
+program
     .command('destroy')
     .description('Remove all AWS resource currently deployed')
     .action(terraformService.destroy);

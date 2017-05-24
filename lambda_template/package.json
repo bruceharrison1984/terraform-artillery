@@ -1,0 +1,12 @@
+{
+  "name": "terraform-artillery",
+  "version": "0.0.1",
+  "license": "Apache2",
+  "dependencies": {
+    "artillery-core": "^2.0.3-0",
+    "aws-sdk": "^2.49.0",
+    "csv-parse": "^1.1.7",
+    "fs": "^3.0.1",
+    "path": "^0.12.7"
+  }
+}
