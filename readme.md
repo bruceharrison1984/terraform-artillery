@@ -28,6 +28,15 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - Command Note: If running directly from the repository, swap `terraform-artillery` to `node ./index.js`
 - This will be necessary until an NPM package has been published
 
+### Create the artifacts
+- Before deploying Artillery lambdas, you will need to create the deployment package
+- `terraform-artillery template`
+  - This will create a folder called `lambda_template` that contains the function to be published
+  - This also creates a package.json that you will use to package dependencies to your Artillery lambda function
+- This directory and files must exist prior to deployment
+- Currently, the entry point must be a file called `handler.js` that exports a function called `handler`
+  - This will probably be made configurable at some point
+
 ### Deploy the Artillery lambdas:
 - Running any deploy tasks will update/overwrite any lambdas that may already be deployed
 - Running deploy and changing regions will remove lambdas from any regions no longer specified
