@@ -2,6 +2,6 @@ lambda_package
 .eslintrc.yml
 .npmignore
 .gitignore
-*tfstate*
+*.tfstate*
 yarn.lock
-scenarios
+./lambda_template
