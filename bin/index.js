@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 'use strict';
 
-const packageInfo = require(`${__dirname}/package.json`);
+const packageInfo = require('../package.json');
 const program = require('commander');
-const terraformService = require(`${__dirname}/lib/terraformService`);
-const artilleryService = require(`${__dirname}/lib/artilleryService`);
+const terraformService = require('../lib/terraformService');
+const artilleryService = require('../lib/artilleryService');
 
 program.version(packageInfo.version);
 

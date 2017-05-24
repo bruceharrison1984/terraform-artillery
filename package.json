@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "repository":"https://github.com/bruceharrison1984/terraform-artillery",
   "bin": {
-    "terraform-artillery": "./index.js"
+    "terraform-artillery": "./bin/index.js"
   },
   "dependencies": {
     "aws-sdk": "^2.49.0",
