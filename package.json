@@ -6,7 +6,6 @@
     "terraform-artillery": "./index.js"
   },
   "dependencies": {
-    "artillery-core": "^2.0.3-0",
     "aws-sdk": "^2.49.0",
     "bestzip": "^1.1.4",
     "colors": "^1.1.2",
