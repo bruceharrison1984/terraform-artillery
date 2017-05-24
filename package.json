@@ -2,6 +2,7 @@
   "name": "terraform-artillery",
   "version": "0.0.13",
   "license": "Apache-2.0",
+  "repository":"https://github.com/bruceharrison1984/terraform-artillery",
   "bin": {
     "terraform-artillery": "./index.js"
   },
