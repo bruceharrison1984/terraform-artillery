@@ -11,7 +11,7 @@ module "us_east_1" {
   role_id          = "${aws_iam_role.artillery.id}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file(var.lambda_package))}"
-  runtime          = "nodejs4.3"
+  runtime          = "nodejs6.10"
   enabled          = "${var.useast1}"
   env_vars         = "${var.env_vars}"
 }
@@ -25,7 +25,7 @@ module "us_east_2" {
   role_id          = "${aws_iam_role.artillery.id}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file(var.lambda_package))}"
-  runtime          = "nodejs4.3"
+  runtime          = "nodejs6.10"
   enabled          = "${var.useast2}"
   env_vars         = "${var.env_vars}"
 }
@@ -39,7 +39,7 @@ module "us_west_1" {
   role_id          = "${aws_iam_role.artillery.id}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file(var.lambda_package))}"
-  runtime          = "nodejs4.3"
+  runtime          = "nodejs6.10"
   enabled          = "${var.uswest1}"
   env_vars         = "${var.env_vars}"
 }
@@ -53,7 +53,7 @@ module "us_west_2" {
   role_id          = "${aws_iam_role.artillery.id}"
   handler          = "handler.handler"
   source_code_hash = "${base64sha256(file(var.lambda_package))}"
-  runtime          = "nodejs4.3"
+  runtime          = "nodejs6.10"
   enabled          = "${var.uswest2}"
   env_vars         = "${var.env_vars}"
 }
