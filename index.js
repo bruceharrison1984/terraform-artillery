@@ -41,6 +41,7 @@ program
     .description('Run scenario(s) against all deployed Artillery Lambdas')
     .option('-s, --scenario <path>', 'The scenario file or directory of files to remotely execute on the artillery lambdas')
     .option('-i, --iterations <n>', 'The number of times to execute each scenario on each lambda (Defaults to 1 if unspecified)')
+    .option('--test', 'Run the default scenarios (verify correct operation)')
     .action(artilleryService.invoke);
 
 program.parse(process.argv);
