@@ -1,6 +1,6 @@
 {
   "name": "terraform-artillery",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "license": "Apache-2.0",
   "bin": {
     "terraform-artillery": "./index.js"
