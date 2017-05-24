@@ -5,9 +5,6 @@
   "repository":"https://github.com/bruceharrison1984/terraform-artillery",
   "license": "Apache-2.0",
   "dependencies": {
-    "artillery-core": "^2.0.3-0",
-    "csv-parse": "^1.1.7",
-    "fs": "0.0.2",
-    "path": "^0.12.7"
+    "artillery-core": "^2.0.3-0"
   }
 }
