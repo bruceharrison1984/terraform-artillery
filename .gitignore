@@ -3,3 +3,4 @@ lambda_package
 .terraform
 *.tfstate*
 lambda_template
+npm-debug.log
