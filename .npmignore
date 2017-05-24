@@ -1,7 +1,8 @@
 lambda_package
 .eslintrc.yml
 .npmignore
+npm-debug.log
 .gitignore
 *.tfstate*
 yarn.lock
-./lambda_template
+lambda_template
