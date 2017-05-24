@@ -97,11 +97,7 @@ I created the project due to my distaste for serverless. Rather than introduce a
 - Results should be placed in a container
   - S3 bucket
   - DynamoDB table
-- Publish as an NPM module
 - Error handling of incorrectly structured templates
-- Only add necessary node_modules to the deployed lambda
-  - Decrease filesize
-  - Speed-up deployment and execution time
 
 ## License
 - Apache 2.0
