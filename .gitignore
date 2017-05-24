@@ -2,3 +2,4 @@ node_modules
 lambda_package
 .terraform
 *.tfstate*
+lambda_template
