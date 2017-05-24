@@ -36,3 +36,8 @@ variable "env_vars" {
     None = "true"
   }
 }
+
+variable "lambda_package" {
+  type        = "string"
+  description = "The full path to the lambda deployment package"
+}
