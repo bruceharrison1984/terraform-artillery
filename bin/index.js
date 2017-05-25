@@ -57,6 +57,8 @@ program
             .then(results => {
                 console.log('All requests have finished!'.green);
                 if (output) { resultsWriterService.saveResults(results); }
+            }).catch(err => {
+                console.log(`Error occured during invocation: ${err}`.red);
             });
     });
 
