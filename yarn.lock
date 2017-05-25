@@ -95,8 +95,8 @@ async@~1.5.0:
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
 aws-sdk@^2.49.0:
-  version "2.56.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.56.0.tgz#a18c3005c7adb1c6edc86b95f2833aedd4f86493"
+  version "2.58.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.58.0.tgz#7ea8c3aa59e97a87c570dbe12d0042082ac1debf"
   dependencies:
     buffer "5.0.6"
     crypto-browserify "1.0.9"
@@ -740,13 +740,13 @@ minimist@0.0.8:
 
 minipass@^2.0.0, minipass@^2.0.2:
   version "2.0.2"
-  resolved "http://npm.prios.io/minipass/-/minipass-2.0.2.tgz#fae5c78124051f56fd2007df0012e0dac7a752ce"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.0.2.tgz#fae5c78124051f56fd2007df0012e0dac7a752ce"
   dependencies:
     yallist "^3.0.0"
 
 minizlib@^1.0.3:
   version "1.0.3"
-  resolved "http://npm.prios.io/minizlib/-/minizlib-1.0.3.tgz#d5c1abf77be154619952e253336eccab9b2a32f5"
+  resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.0.3.tgz#d5c1abf77be154619952e253336eccab9b2a32f5"
   dependencies:
     minipass "^2.0.0"
 
@@ -1057,7 +1057,7 @@ tar-stream@~1.3.1:
 
 tar@^3.1.3:
   version "3.1.3"
-  resolved "http://npm.prios.io/tar/-/tar-3.1.3.tgz#b4a04aafb5375a969a9fb7cc08e48a8ac3514277"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-3.1.3.tgz#b4a04aafb5375a969a9fb7cc08e48a8ac3514277"
   dependencies:
     minipass "^2.0.2"
     minizlib "^1.0.3"
@@ -1150,7 +1150,7 @@ xtend@^4.0.0:
 
 yallist@^3.0.0, yallist@^3.0.2:
   version "3.0.2"
-  resolved "http://npm.prios.io/yallist/-/yallist-3.0.2.tgz#8452b4bb7e83c7c188d8041c1a837c773d6d8bb9"
+  resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.0.2.tgz#8452b4bb7e83c7c188d8041c1a837c773d6d8bb9"
 
 yaml-js@^0.1.5:
   version "0.1.5"
