@@ -3,7 +3,8 @@ lambda_package
 .npmignore
 npm-debug.log
 .gitignore
-*.tfstate*
+terraform.tfstate*
 yarn.lock
 lambda_template
 Results
+/tfstate
