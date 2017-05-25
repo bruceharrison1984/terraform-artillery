@@ -3,11 +3,13 @@
 
 const packageInfo = require('../package.json');
 const program = require('commander');
-const terraformService = require('../lib/terraformService');
-const artilleryService = require('../lib/artilleryService');
-const scenarioService = require('../lib/scenarioService');
-const tfstateService = require('../lib/tfstateService');
-const resultsWriterService = require('../lib/resultsWriterService');
+const {
+    terraformService,
+    artilleryService,
+    scenarioService,
+    tfstateService,
+    resultsWriterService
+} = require('../index.js');
 
 const defaultScenarioDirectory = `${__dirname}/../scenarios`;
 
