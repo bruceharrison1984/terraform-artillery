@@ -6,3 +6,4 @@ npm-debug.log
 *.tfstate*
 yarn.lock
 lambda_template
+Results

@@ -7,6 +7,7 @@ const terraformService = require('../lib/terraformService');
 const artilleryService = require('../lib/artilleryService');
 const scenarioService = require('../lib/scenarioService');
 const tfstateService = require('../lib/tfstateService');
+const resultsWriterService = require('../lib/resultsWriterService');
 
 const defaultScenarioDirectory = `${__dirname}/../scenarios`;
 
@@ -45,11 +46,16 @@ program
     .description('Run scenario(s) against all deployed Artillery Lambdas')
     .option('-s, --scenario <path>', 'The scenario file or directory of files to remotely execute on the artillery lambdas')
     .option('-i, --iterations <n>', 'The number of times to execute each scenario on each lambda (Defaults to 1 if unspecified)')
+    .option('-o, --output', 'Save the results of the invocation to the Results directory')
     .option('--test', 'Run the default scenarios (verify correct operation)')
-    .action(({ scenario, iterations, test }) => {
+    .action(({ scenario, iterations, test, output }) => {
         let scenarios = scenarioService.getScenarioContent(test ? defaultScenarioDirectory : scenario);
         let tfstate = tfstateService.readState();
-        artilleryService.invoke(tfstate, scenarios, iterations || 1);
+        artilleryService.invoke(tfstate, scenarios, iterations || 1)
+            .then(results => {
+                console.log('All requests have finished!'.green);
+                if (output) { resultsWriterService.saveResults(results); }
+            });
     });
 
 program.parse(process.argv);

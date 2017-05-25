@@ -80,9 +80,10 @@ This project was written with the intent of load testing AWS Api Gateway and acc
 ### Invoke the Artillery lambdas:
 - `terraform-artillery invoke --scenario scenarios/get-aws.amazon.com --iterations 10`
   - Invoke the lambdas with the given scenario, for X iterations
-- `terraform-artillery invoke --scenario scenarios/ --iterations 10`
+- `terraform-artillery invoke --scenario scenarios/ --iterations 10 --output`
   - Run all scenarios found in the directory specified
   - This is a recursive search so files in sub-directories will also be ran
+  - Results will be saved locally into the Results directory
 - Scenarios will be run against all currently deployed lambdas
 
 ### Package the files for lambda deployment (for testing)
