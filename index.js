@@ -5,4 +5,4 @@ module.exports = {
     scenarioService: require('./lib/scenarioService'),
     terraformService: require('./lib/terraformService'),
     tfstateService: require('./lib/tfstateService'),
-}
+};
