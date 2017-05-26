@@ -40,7 +40,12 @@ program
 program
     .command('template')
     .description('Create the basic structure for an Artillery lambda. The lambda code can be customized to suit your needs')
-    .action(terraformService.template);
+    .action(() => {
+        terraformService.template()
+            .catch(err => {
+                console.error(`Error occured during template copy: ${err}`.red);
+            });
+    });
 
 program
     .command('destroy')
