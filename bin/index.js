@@ -30,7 +30,12 @@ program
 program
     .command('package')
     .description('Create the Zip package for AWS Lambda deployment (Will overwrite existing package)')
-    .action(terraformService.package);
+    .action(() => {
+        terraformService.package()
+            .catch(err => {
+                console.error(`Error occured during packaging: ${err}`.red);
+            });
+    });
 
 program
     .command('template')
