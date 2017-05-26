@@ -52,6 +52,7 @@ This project was written with the intent of load testing AWS Api Gateway and acc
 ### Deploy the Artillery lambdas:
 - Running any deploy tasks will update/overwrite any lambdas that may already be deployed
 - Running deploy and changing regions will remove lambdas from any regions no longer specified
+- A new deployment package will be created automatically if the hash from the last deployment package doesn't match
 - `terraform-artillery deploy --all`
   - Deploy to all US regions
 - `terraform-artillery deploy --useast1 --uswest1`
@@ -60,9 +61,6 @@ This project was written with the intent of load testing AWS Api Gateway and acc
 - `terraform-artillery deploy -p --useast1 --uswest1`
   - This will display the resources that will be deployed to AWS, but nothing is deployed
   - Useful for testing or seeing if resources have already been deployed
-- `terraform-artillery deploy --useast1 --overwrite`
-  - Use the `overwrite` flag to force the lambda deployment package to be recreated before upload
-  - The package needs to be recreated anytime a change is made to it, otherwise a previous compiled package will be uploaded
 
 ### Passing environmental variables
 - `terraform-artillery deploy --useast1 --env {foo=\"bar\"}`
@@ -102,11 +100,9 @@ This project was written with the intent of load testing AWS Api Gateway and acc
 - YML or JSON formats are both acceptable
 - Incorrect templates will cause the entire job to fail
 
-## ToDo
-- Results should be placed in a container
-  - S3 bucket
-  - DynamoDB table
-- Error handling of incorrectly structured templates
+### Programmatic Usage
+- Adding a `const tfart = require('terraform-artillery')` to a node file will allow you to programmatically invoke terraform-artillery
+- Useful for avoiding bash scripts, and invoking the functions directly
 
 ## License
 - Apache 2.0
