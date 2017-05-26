@@ -6,30 +6,36 @@ I created the project due to my distaste for serverless. Rather than introduce a
 
 This project was written with the intent of load testing AWS Api Gateway and accompanying Lambdas. Since a Lambda can only have an execution time of 5 minutes, any test written longer than that will not work or produce strange results. This may be corrected in the future, but for the time being don't write any scenarios that run longer than 5 minutes (your lambda will timeout).
 
+**Beware! Executing many iterations in many regions could be an expensive mistake!**
+
 ### Hard Dependencies
-- Terraform ^0.9.4 on PATH
-  - Lower versions may work depending on your terraform templates
-  - The critical part of this is that the tfstate file is read to see what has been deployed. If the format has changed, this will fail.
+- Tested with Terraform 0.9.4 on PATH
+  - Other versions may work as long as the tfstate format has not drastically changed
   - [Download](https://www.terraform.io/downloads.html)
 
 ## Features
-- Simultaneously deploy an AWS Lambda to each of the US regions
-- Run a scenario N times against all of the deployed lambdas
-- Run a directory of scenarios N times against all of the deployed lambdas
+- Simultaneously deploy an AWS Lambda to each of the US regions in less than 5 minutes
+  - Deployment times may vary based on Lambda package size and connectivity
+- Run scenarios N times against all of the deployed lambdas
+  - Supports single files or recursive search of a directory
+- Scenarios are executed sequentially, but responses arrive asynchronously
+- Cloudwatch logging for all deployed lambdas
 - Easily pass environment variables to Lambdas through commandline
 - Clean up all lambdas once testing has finished
-- Cloudwatch logging for deployed lambdas
-- Scenarios are executed sequentially, but responses arrive asynchronously
+- Results are returned to the computer that executed the tests
+  - Can be saved to local disk with `--output` and analyzed with other tools
+  - Accessed programmatically if executing via nodejs
+- **Currently, load testing times longer than 5 minutes are not supported**
 
 ## Installation
 - Install node modules using either
   - yarn install
   - npm install
 - If installed globally, then `terraform-artillery` should be available from the commandline
-  - If install locally, use `node node_modules/.bin/terraform-artillery` instead
+  - If install locally, use `node_modules/.bin/terraform-artillery` from the project root
 
 ## Usage
-- **Beware! Executing many iterations in many regions could be an expensive mistake!**
+
 
 ### Create the artifacts
 - Before deploying Artillery lambdas, you will need to create the deployment package
