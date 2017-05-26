@@ -25,7 +25,6 @@ program
     .option('-p, --plan', 'Display which items will be deployed in to AWS')
     .option('-e, --env <map>', 'Environmental variables to set on the Artillery lambda ex: {foo=\\"bar\\",baz=\\"qux\\"}')
     .option('-a, --allregions', 'Deploy Artillery to all US regions')
-    .option('-o, --overwrite', 'Re-package and overwrite any existing lambda package before deployment')
     .action(terraformService.deploy);
 
 program
