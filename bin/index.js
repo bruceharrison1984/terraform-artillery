@@ -58,7 +58,13 @@ program
 program
     .command('destroy')
     .description('Remove all AWS resource currently deployed')
-    .action(terraformService.destroy);
+    .action( (...args) => {
+        terraformService.destroy(...args)
+          .catch(err => {
+            console.error(`Error occured during destroy: ${err}`.red);
+            process.exit(1);
+          });
+    });
 
 program
     .command('invoke')
