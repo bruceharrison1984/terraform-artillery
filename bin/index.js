@@ -25,7 +25,13 @@ program
     .option('-p, --plan', 'Display which items will be deployed in to AWS')
     .option('-e, --env <map>', 'Environmental variables to set on the Artillery lambda ex: {foo=\\"bar\\",baz=\\"qux\\"}')
     .option('-a, --allregions', 'Deploy Artillery to all US regions')
-    .action(terraformService.deploy);
+    .action( (...args) => {
+        terraformService.deploy(...args)
+          .catch(err => {
+            console.error(`Error occured during deployment: ${err}`.red);
+            process.exit(1);
+          });
+    });
 
 program
     .command('package')
@@ -34,6 +40,7 @@ program
         terraformService.package()
             .catch(err => {
                 console.error(`Error occured during packaging: ${err}`.red);
+                process.exit(1);
             });
     });
 
@@ -44,6 +51,7 @@ program
         terraformService.template()
             .catch(err => {
                 console.error(`Error occured during template copy: ${err}`.red);
+                process.exit(1);
             });
     });
 
@@ -68,6 +76,7 @@ program
                 if (output) { resultsWriterService.saveResults(results); }
             }).catch(err => {
                 console.log(`Error occured during invocation: ${err}`.red);
+                process.exit(1);
             });
     });
 
